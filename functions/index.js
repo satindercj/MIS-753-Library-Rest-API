@@ -1,3 +1,5 @@
+const functions = require("firebase-functions");
+
 const express = require('express');
 const mongoose = require('mongoose');
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -43,7 +45,13 @@ app.use('/v1/api/', routes);
 
 //Swagger Docs
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/v1/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+//Welcome Message
+app.get('/', (req, res, next) => {
+    res.send('Welcome to My REST API built with NodeJS, Express, and MongoDB. This API provides info about books stored in our "library" on MongoDB. To see the Swagger Documentation, type "/docs" in the URL.');
+})
 
 //404 Error Endpoint
 app.use((req, res, next) => {
@@ -51,3 +59,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(3000, () => console.log('Server is up and running! 🚀'));
+
+exports.app = functions.https.onRequest(app);
