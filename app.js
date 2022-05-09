@@ -38,14 +38,16 @@ const swaggerOptions = {
 
 app.use(express.json());
 
+//Routes
 app.use('/v1/api/', routes);
 
+//Swagger Docs
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/v1/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-
+//404 Error Endpoint
 app.use((req, res, next) => {
     res.status(404).send("404 Error! There was an issue with the endpoint! Please make sure everything is correct and include in your request!");
 });
 
-app.listen(3000, () => console.log('Server is up and running on localhost:3000! 🚀'));
+app.listen(3000, () => console.log('Server is up and running! 🚀'));
