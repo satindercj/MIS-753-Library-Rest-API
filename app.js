@@ -43,7 +43,12 @@ app.use('/v1/api/', routes);
 
 //Swagger Docs
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/v1/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+//Welcome Message
+app.get('/', (req, res, next) => {
+    res.send('Welcome to My REST API built with NodeJS, Express, and MongoDB. This API provides info about books stored in our "library" on MongoDB. To see the Swagger Documentation, type "/docs" in the URL.');
+})
 
 //404 Error Endpoint
 app.use((req, res, next) => {
