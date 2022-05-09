@@ -33,7 +33,7 @@ Installs the dependencies you need to run the application
 Runs the app in the development mode.\
 The application is hosted on [http://localhost:3000](http://localhost:3000).
 
-Open [http://localhost:3000/v1/api/docs/](http://localhost:3000/v1/api/docs/) to view Swagger Documentation for REST API in the browser.
+Open [http://localhost:3000/docs/](http://localhost:3000/v1/api/docs/) to view Swagger Documentation for REST API in the browser.
 
 
 ### `npm run dev`
