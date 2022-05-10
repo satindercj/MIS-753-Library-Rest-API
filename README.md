@@ -15,7 +15,7 @@ It will look something like this:
 
 You will then need to create a .env file in the project directory
 
-In the project directory paste this string:
+In the .env file paste this string with your credentials:
 `DATABASE_URL = mongodb+srv://testPerson:*******@cluster0.xduyh.mongodb.net/testDatabase`
 
 ## Run Project
